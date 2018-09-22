@@ -1,0 +1,672 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CloudStructures</name>
+    </assembly>
+    <members>
+        <member name="T:CloudStructures.RedisExpiry">
+            <summary>
+            <pre>RedisExpiry represents TimeSpan or DateTime for Redis key expire operation.</pre>
+            <pre>You can convert implicit operator.</pre>
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.String``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisString used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.List``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisList used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.Set``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisSet used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.SortedSet``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisSortedSet used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.Hash``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisHash used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.Dictionary``2(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisDictionary used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.Class``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisClass used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.HyperLogLog``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisHyperLogLog used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisGroup.Lua(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisLua used by this group.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.Exists(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HEXISTS http://redis.io/commands/hexists
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.Keys(StackExchange.Redis.CommandFlags)">
+            <summary>
+            HKEYS http://redis.io/commands/hkeys
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.Length(StackExchange.Redis.CommandFlags)">
+            <summary>
+            HLEN http://redis.io/commands/hlen
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.Increment(`0,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HINCRBY http://redis.io/commands/hincrby
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.Increment(`0,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HINCRBYFLOAT http://redis.io/commands/hincrbyfloat
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.IncrementLimitByMax(`0,System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrby, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.IncrementLimitByMax(`0,System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrbyfloat, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.IncrementLimitByMin(`0,System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrby, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.IncrementLimitByMin(`0,System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrbyfloat, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.Delete(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HDEL http://redis.io/commands/hdel
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHashBase`1.Delete(`0[],StackExchange.Redis.CommandFlags)">
+            <summary>
+            HDEL http://redis.io/commands/hdel
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisDictionary`2.Get(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HGET http://redis.io/commands/hget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisDictionary`2.Get(`0[],System.Collections.Generic.IEqualityComparer{`0},StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMGET http://redis.io/commands/hmget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisDictionary`2.GetAll(System.Collections.Generic.IEqualityComparer{`0},StackExchange.Redis.CommandFlags)">
+            <summary>
+            HGETALL http://redis.io/commands/hgetall
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisDictionary`2.Values(StackExchange.Redis.CommandFlags)">
+            <summary>
+            HVALS http://redis.io/commands/hvals
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisDictionary`2.Set(`0,`1,CloudStructures.RedisExpiry,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HSET, HSETNX http://redis.io/commands/hset http://redis.io/commands/hsetnx
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisDictionary`2.Set(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}},CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMSET http://redis.io/commands/hmset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHash`1.Get``1(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HGET http://redis.io/commands/hget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHash`1.Get``1(`0[],System.Collections.Generic.IEqualityComparer{`0},StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMGET http://redis.io/commands/hmget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHash`1.Set``1(`0,``0,CloudStructures.RedisExpiry,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HSET, HSETNX http://redis.io/commands/hset http://redis.io/commands/hsetnx
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHash`1.Set``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,``0}},CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMSET http://redis.io/commands/hmset
+            </summary>
+        </member>
+        <member name="T:CloudStructures.RedisClass`1">
+            <summary>
+            RedisClass is type mapped RedisHash.
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.Get(StackExchange.Redis.CommandFlags)">
+            <summary>
+            All hash value map to class if key can't find returns null, includes HGETALL.
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.Set(`0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            Class fields set to hash, includes HMSET. If return value is null value == null.
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.GetOrSet(System.Func{`0},CloudStructures.RedisExpiry,System.Boolean,StackExchange.Redis.CommandFlags)">
+            <summary>
+            GET(HGETALL), SET(HMSET)
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.GetOrSet(System.Func{System.Threading.Tasks.Task{`0}},CloudStructures.RedisExpiry,System.Boolean,StackExchange.Redis.CommandFlags)">
+            <summary>
+            GET(HGETALL), SET(HMSET)
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.GetMember``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},StackExchange.Redis.CommandFlags)">
+            <summary>
+            HGET http://redis.io/commands/hget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.GetMember``1(System.String,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HGET http://redis.io/commands/hget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.GetMembers``1(System.Linq.Expressions.Expression{System.Func{`0,``0[]}},StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMGET http://redis.io/commands/hmget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.GetMembers``1(System.String[],StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMGET http://redis.io/commands/hmget
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.SetMember``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HSET, HSETNX http://redis.io/commands/hset http://redis.io/commands/hsetnx
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.SetMember``1(System.String,``0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HSET, HSETNX http://redis.io/commands/hset http://redis.io/commands/hsetnx
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.SetMembers``1(System.Linq.Expressions.Expression{System.Func{`0,``0[]}},``0[],CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMSET http://redis.io/commands/hmset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.SetMembers``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,``0}},CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HMSET http://redis.io/commands/hmset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.Increment(System.Linq.Expressions.Expression{System.Func{`0,System.Int64}},System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HINCRBY http://redis.io/commands/hincrby
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.Increment(System.String,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HINCRBY http://redis.io/commands/hincrby
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.Increment(System.Linq.Expressions.Expression{System.Func{`0,System.Double}},System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HINCRBYFLOAT http://redis.io/commands/hincrbyfloat
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.Increment(System.String,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            HINCRBYFLOAT http://redis.io/commands/hincrbyfloat
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMax(System.Linq.Expressions.Expression{System.Func{`0,System.Int64}},System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrby, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMax(System.String,System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrby, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMax(System.Linq.Expressions.Expression{System.Func{`0,System.Double}},System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrbyfloat, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMax(System.String,System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrbyfloat, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMin(System.Linq.Expressions.Expression{System.Func{`0,System.Int64}},System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrby, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMin(System.String,System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrby, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMin(System.Linq.Expressions.Expression{System.Func{`0,System.Double}},System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrbyfloat, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisClass`1.IncrementLimitByMin(System.String,System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including hincrbyfloat, hset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.LeftPush(`0,CloudStructures.RedisExpiry,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LPUSH http://redis.io/commands/lpush
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.LeftPush(`0[],CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LPUSH http://redis.io/commands/lpush
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.RightPush(`0,CloudStructures.RedisExpiry,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)">
+            <summary>
+            RPUSH http://redis.io/commands/rpush
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.RightPush(`0[],CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            RPUSH http://redis.io/commands/rpush
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.GetByIndex(System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LINDEX http://redis.io/commands/lindex
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.Length(StackExchange.Redis.CommandFlags)">
+            <summary>
+            LLEN http://redis.io/commands/llen
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.Range(System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LRANGE http://redis.io/commands/lrange
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.Remove(`0,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            <para>LREM http://redis.io/commands/lrem</para>
+            <para>count &gt; 0: Remove elements equal to value moving from head to tail.</para>
+            <para>count &lt; 0: Remove elements equal to value moving from tail to head.</para>
+            <para>count = 0: Remove all elements equal to value.</para>
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.LeftPop(StackExchange.Redis.CommandFlags)">
+            <summary>
+            LPOP http://redis.io/commands/lpop
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.RightPop(StackExchange.Redis.CommandFlags)">
+            <summary>
+            RPOP http://redis.io/commands/rpop
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.SetByIndex(System.Int32,`0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LSET http://redis.io/commands/lset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.Trim(System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LTRIM http://redis.io/commands/ltrim
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.InsertAfter(`0,`0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LINSERT http://redis.io/commands/linsert
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.InsertBefore(`0,`0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LINSERT http://redis.io/commands/linsert
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisList`1.LeftPushAndFixLength(`0,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)">
+            <summary>
+            Simulate fixed size list includes LPUSH, TRIM.
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisLua.ScriptEvaluate(System.String,StackExchange.Redis.RedisKey[],StackExchange.Redis.RedisValue[],StackExchange.Redis.CommandFlags)">
+            <summary>
+            EVALSHA http://redis.io/commands/evalsha
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisLua.ScriptEvaluate``1(System.String,StackExchange.Redis.RedisKey[],StackExchange.Redis.RedisValue[],StackExchange.Redis.CommandFlags)">
+            <summary>
+            EVALSHA http://redis.io/commands/evalsha
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Add(`0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SADD http://redis.io/commands/sadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Add(`0[],CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SADD http://redis.io/commands/sadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Contains(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SISMEMBER http://redis.io/commands/sismember
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Members(StackExchange.Redis.CommandFlags)">
+            <summary>
+            SMEMBERS http://redis.io/commands/smembers
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Length(StackExchange.Redis.CommandFlags)">
+            <summary>
+            SCARD http://redis.io/commands/scard
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.RandomMember(StackExchange.Redis.CommandFlags)">
+            <summary>
+            SRANDMEMBER http://redis.io/commands/srandmember
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.RandomMembers(System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SRANDMEMBER http://redis.io/commands/srandmember
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Remove(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SREM http://redis.io/commands/srem
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Remove(`0[],StackExchange.Redis.CommandFlags)">
+            <summary>
+            SREM http://redis.io/commands/srem
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSet`1.Pop(StackExchange.Redis.CommandFlags)">
+            <summary>
+            SPOP http://redis.io/commands/spop
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.String``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisString used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.List``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisList used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.Set``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisSet used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.SortedSet``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisSortedSet used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.Hash``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisHash used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.Dictionary``2(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisDictionary used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.Class``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisClass used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.HyperLogLog``1(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisHyperLogLog used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisSettings.Lua(StackExchange.Redis.RedisKey)">
+            <summary>Create RedisLua used by this settings.</summary>
+        </member>
+        <member name="M:CloudStructures.RedisHyperLogLog`1.Add(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            PFADD http://redis.io/commands/pfadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHyperLogLog`1.Add(`0[],StackExchange.Redis.CommandFlags)">
+            <summary>
+            PFADD http://redis.io/commands/pfadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisHyperLogLog`1.Length(StackExchange.Redis.CommandFlags)">
+            <summary>
+            PFCOUNT http://redis.io/commands/pfcount
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Add(`0,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZADD http://redis.io/commands/zadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Add(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Double}},CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZADD http://redis.io/commands/zadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Length(System.Double,System.Double,StackExchange.Redis.Exclude,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZCARD, ZCOUNT http://redis.io/commands/zcard http://redis.io/commands/zcount
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Increment(`0,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZINCRBY http://redis.io/commands/zincrby
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Decrement(`0,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZINCRBY http://redis.io/commands/zincrby
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.IncrementLimitByMax(`0,System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including zincrby, zadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.IncrementLimitByMin(`0,System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including zincrby, zadd
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RangeByRank(System.Int64,System.Int64,StackExchange.Redis.Order,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZRANGE, ZREVRANGE http://redis.io/commands/zrange http://redis.io/commands/zrevrange
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RangeByRankWithScores(System.Int64,System.Int64,StackExchange.Redis.Order,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZRANGE, ZREVRANGE http://redis.io/commands/zrange http://redis.io/commands/zrevrange
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RangeByRankWithScoresAndRank(System.Int64,System.Int64,StackExchange.Redis.Order,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZRANGE, ZREVRANGE http://redis.io/commands/zrange http://redis.io/commands/zrevrange
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RangeByScore(System.Double,System.Double,StackExchange.Redis.Exclude,StackExchange.Redis.Order,System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZRANGEBYSCORE, ZREVRANGEBYSCORE http://redis.io/commands/zrangebyscore http://redis.io/commands/zrevrangebyscore
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RangeByScoreWithScores(System.Double,System.Double,StackExchange.Redis.Exclude,StackExchange.Redis.Order,System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZRANGEBYSCORE, ZREVRANGEBYSCORE http://redis.io/commands/zrangebyscore http://redis.io/commands/zrevrangebyscore
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RangeByValue(`0,`0,StackExchange.Redis.Exclude,System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZRANGEBYLEX http://redis.io/commands/zrangebylex
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Rank(`0,StackExchange.Redis.Order,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZRANK http://redis.io/commands/zrank
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Score(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZSCORE http://redis.io/commands/zscore
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Get(`0,StackExchange.Redis.Order,StackExchange.Redis.CommandFlags)">
+            <summary>
+            Get Rank and Score include ZRANK, ZSCORE. If not found return value is null.
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Remove(`0,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZREM http://redis.io/commands/zrem
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.Remove(`0[],StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZREM http://redis.io/commands/zrem
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RemoveRangeByRank(System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZREMRANGEBYRANK http://redis.io/commands/zremrangebyrank
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RemoveRangeByScore(System.Double,System.Double,StackExchange.Redis.Exclude,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZREMRANGEBYSCORE http://redis.io/commands/zremrangebyscore
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisSortedSet`1.RemoveRangeByScore(`0,`0,StackExchange.Redis.Exclude,StackExchange.Redis.CommandFlags)">
+            <summary>
+            ZREMRANGEBYLEX http://redis.io/commands/zremrangebylex
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.Get(StackExchange.Redis.CommandFlags)">
+            <summary>
+            GET http://redis.io/commands/get
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.GetSet(`0,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            GETSET http://redis.io/commands/getset
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.GetOrSet(System.Func{`0},CloudStructures.RedisExpiry,System.Boolean,StackExchange.Redis.CommandFlags)">
+            <summary>
+            GET, SET http://redis.io/commands/get http://redis.io/commands/set
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.GetOrSet(System.Func{System.Threading.Tasks.Task{`0}},CloudStructures.RedisExpiry,System.Boolean,StackExchange.Redis.CommandFlags)">
+            <summary>
+            GET, SET http://redis.io/commands/get http://redis.io/commands/set
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.Set(`0,CloudStructures.RedisExpiry,StackExchange.Redis.When,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SET http://redis.io/commands/set
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.Increment(System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            INCRBY http://redis.io/commands/incrby
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.Increment(System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            INCRBYFLOAT http://redis.io/commands/incrbyfloat
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.Decrement(System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            DECRBY http://redis.io/commands/decrby
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.Decrement(System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            INCRBYFLOAT http://redis.io/commands/incrbyfloat
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.IncrementLimitByMax(System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including incrby, set
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.IncrementLimitByMin(System.Int64,System.Int64,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including incrby, set
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.IncrementLimitByMax(System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including incrbyfloat, set
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.IncrementLimitByMin(System.Double,System.Double,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            LUA Script including incrbyfloat, set
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.SetBit(System.Int64,System.Boolean,CloudStructures.RedisExpiry,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SETBIT http://redis.io/commands/setbit
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.GetBit(System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            GETBIT http://redis.io/commands/getbit
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.BitCount(System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            BITCOUNT http://redis.io/commands/bitcount
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisString`1.BitPosition(System.Boolean,System.Int64,System.Int64,StackExchange.Redis.CommandFlags)">
+            <summary>
+            BITPOSITION http://redis.io/commands/bitpos
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisStructure.Expire(System.DateTime,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SETEX, PSETEX http://redis.io/commands/setex http://redis.io/commands/psetex
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisStructure.Expire(System.TimeSpan,StackExchange.Redis.CommandFlags)">
+            <summary>
+            SETEX, PSETEX http://redis.io/commands/setex http://redis.io/commands/psetex
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisStructure.Exists(StackExchange.Redis.CommandFlags)">
+            <summary>
+            EXISTS http://redis.io/commands/exists
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisStructure.Delete(StackExchange.Redis.CommandFlags)">
+            <summary>
+            DEL http://redis.io/commands/del
+            </summary>
+        </member>
+        <member name="M:CloudStructures.RedisStructure.TimeToLive(StackExchange.Redis.CommandFlags)">
+            <summary>
+            TTL http://redis.io/commands/ttl
+            </summary>
+        </member>
+        <member name="T:CloudStructures.ObjectRedisValueConverterBase">
+            <summary>
+            <para>Bass class of IRedisValueConverter for object serialization.</para>
+            <para>If target is primitive type(int, double, string, etc), doesn't pass to core serializer.</para>
+            </summary>
+        </member>
+    </members>
+</doc>
